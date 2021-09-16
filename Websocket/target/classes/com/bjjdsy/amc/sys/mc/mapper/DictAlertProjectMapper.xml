@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.bjjdsy.amc.sys.mc.mapper.DictAlertProjectMapper">
-
-	<select id="getGroupCodeByAlertCode" resultType="java.lang.String" parameterType="java.lang.String">
-		select ALERT_GROUP_CODE from DICT_ALERT_PROJECT where ALERT_CODE = #{alertCode,jdbcType=VARCHAR}
-	</select>
-	
-</mapper>
