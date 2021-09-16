@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bjjdsy.amc.sys.mc.mapper.McAlertConfigMapper">
+	<resultMap type="com.bjjdsy.amc.sys.mc.entity.McAlertConfig" id="configResultMap">
+		<result column="GROUP_CODE" property="groupCode" jdbcType="VARCHAR"/>
+		<result column="LEVEL_CODE" property="levelCode" jdbcType="VARCHAR"/>
+		<result column="POST_CODE" property="postCode" jdbcType="VARCHAR"/>
+		<result column="ENABLE" property="enable" jdbcType="VARCHAR"/>
+	</resultMap>
+	
+	
+	<select id="findAlertConfig" resultMap="configResultMap">
+		select GROUP_CODE,LEVEL_CODE,POST_CODE,ENABLE from MC_ALERT_CONFIG 
+		where GROUP_CODE = #{groupCode,jdbcType=VARCHAR} 
+		and LEVEL_CODE = #{levelCode,jdbcType=VARCHAR} 
+		and ENABLE = '1' 
+	</select>
+	
+</mapper>

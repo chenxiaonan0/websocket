@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bjjdsy.amc.sys.mc.mapper.RbacOrganizationMapper">
+	<resultMap type="com.bjjdsy.amc.sys.mc.entity.RbacOrganization" id="orgResultMap">
+		<result column="PARENT_ORG" property="parentOrg" jdbcType="VARCHAR"/>
+		<result column="DEFAULT_LIMIT_CODE" property="defaultLimitCode" jdbcType="VARCHAR"/>
+		<result column="STATION_LIMIT" property="stationLimit" jdbcType="VARCHAR"/>
+		<result column="STATION_AREA_LIMIT" property="stationAreaLimit" jdbcType="VARCHAR"/>
+		<result column="COMPANY_LIMIT" property="companyLimit" jdbcType="VARCHAR"/>
+		<result column="LINE_LIMIT" property="lineLimit" jdbcType="VARCHAR"/>
+		<result column="CENTER_LIMIT" property="centerLimit" jdbcType="VARCHAR"/>
+	</resultMap>
+	
+	
+	<select id="getOrgLimit" resultMap="orgResultMap" parameterType="String">
+		select PARENT_ORG,DEFAULT_LIMIT_CODE,STATION_LIMIT,STATION_AREA_LIMIT,COMPANY_LIMIT,LINE_LIMIT,'00' as CENTER_LIMIT
+		from RBAC_ORGANIZATION where ORG_CODE = #{orgCode,jdbcType=VARCHAR}
+	</select>
+	
+</mapper>
